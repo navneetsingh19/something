@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User Management</title>
+
+<style>
+/* :root{
+  --primary:#4f46e5;
+  --bg:#f8fafc;
+  --border:#e2e8f0;
+  --text:#0f172a;
+  --muted:#64748b;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  padding:40px;
+}
+
+.dashboard{
+  max-width:1100px;
+  margin:auto;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.topbar{
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+}
+
+.title h1{font-size:22px}
+.title p{color:var(--muted);font-size:14px;margin-top:5px}
+
+.add{
+  background:var(--primary);
+  color:white;
+  border:0;
+  padding:10px 16px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.search{
+  padding:16px 24px;
+  border-bottom:1px solid var(--border);
+}
+
+.search input{
+  width:280px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:7px;
+  outline:none;
+}
+
+table{width:100%;border-collapse:collapse}
+
+th,td{
+  padding:15px 20px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
+
+th{
+  font-size:12px;
+  text-transform:uppercase;
+  color:var(--muted);
+  background:#f8fafc;
+}
+
+tr:hover{background:#fafafa}
+
+.user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+} */
+
+/* .avatar{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#e0e7ff;
+  color:#3730a3;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+}
+
+.email{color:var(--muted);font-size:13px}
+
+.badge{
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.active{background:#dcfce7;color:#166534}
+.pending{background:#fef3c7;color:#92400e}
+
+.action{
+  color:var(--primary);
+  cursor:pointer;
+  font-size:14px;
+}
+
+@media(max-width:700px){
+  body{padding:15px}
+  .dashboard{overflow-x:auto}
+  table{min-width:850px}
+}
+</style> */
+</head>
+
+<body>
+
+<div class="dashboard">
+
+  <header class="topbar">
+    <div class="title">
+      <h1>User Management</h1>
+      <p>Manage your organization's users</p>
+    </div>
+    <button class="add">+ Add User</button>
+  </header>
+  <br>
+
+
+  <div class="search">
+    <input type="text" placeholder="Search users...">
+  </div>
+<br>
+  <table border="6"color="yellow">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Role</th>
+        <th>Department</th>
+        <th>Status</th>
+        <th>Last Login</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody border="6"color="yellow">
+      <tr>
+        <td>
+          <div class="user">
+            <div class="avatar">AS</div>
+            <div>
+              <b>Arjun Singh</b>
+              <div class="email">arjun@company.com</div>
+            </div>
+          </div>
+        </td>
+        <td>Python Developer</td>
+        <td>Engineering</td>
+        <td><span class="badge active">Active</span></td>
+        <td>Today, 10:42 AM</td>
+        <td class="action">View</td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="user">
+            <div class="avatar">AD</div>
+            <div>
+              <b>Ananya Das</b>
+              <div class="email">ananya@company.com</div>
+            </div>
+          </div>
+        </td>
+        <td>Data Analyst</td>
+        <td>Analytics</td>
+        <td><span class="badge active">Active</span></td>
+        <td>Yesterday, 4:20 PM</td>
+        <td class="action">View</td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="user">
+            <div class="avatar">RK</div>
+            <div>
+              <b>Rahul Kumar</b>
+              <div class="email">rahul@company.com</div>
+            </div>
+          </div>
+        </td>
+        <td>Backend Developer</td>
+        <td>Engineering</td>
+        <td><span class="badge pending">Pending</span></td>
+        <td>Aug 11, 2026</td>
+        <td class="action">View</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>

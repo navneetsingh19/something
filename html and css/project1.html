@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Shop Dashboard</title>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --dark: #172033;
+        --light: #f4f6fa;
+        --white: #fff;
+        --gray: #64748b;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: var(--light);
+        color: var(--dark);
+      }
+      .navbar {
+        height: 65px;
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid #ddd;
+      }
+      .logo {
+        font-size: 23px;
+        font-weight: bold;
+        color: var(--primary);
+      }
+      .search {
+        width: 300px;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        min-height: calc(100vh - 65px);
+      }
+      .sidebar {
+        background: var(--dark);
+        padding: 25px 15px;
+        color: white;
+      }
+      .sidebar h3 {
+        margin: 0 10px 25px;
+        color: #94a3b8;
+      }
+      .sidebar a {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        padding: 13px 12px;
+        border-radius: 7px;
+        margin: 5px 0;
+      }
+      .sidebar a:hover,
+      .sidebar .active {
+        background: var(--primary);
+        color: white;
+      }
+      .main {
+        padding: 30px;
+        overflow: auto;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+      .header h1 {
+        font-size: 28px;
+      }
+      .button {
+        background: var(--primary);
+        color: white;
+        border: 0;
+        padding: 11px 18px;
+        border-radius: 7px;
+        cursor: pointer;
+      }
+      .button:hover {
+        opacity: 0.85;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-bottom: 25px;
+      }
+      .card {
+        background: var(--white);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #0000000b;
+      }
+      .stat-title {
+        color: var(--gray);
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .stat-value {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      .green {
+        color: #16a34a;
+      }
+      .red {
+        color: #dc2626;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .product {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        border: 1px solid #eee;
+        padding: 15px;
+        border-radius: 10px;
+        transition: 0.2s;
+      }
+      .product:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px #0002;
+      }
+      .product-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 8px;
+        background: #e0e7ff;
+        display: grid;
+        place-items: center;
+        font-size: 30px;
+      }
+      .product-info {
+        flex: 1;
+      }
+      .product-info h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      .product-info p {
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .price {
+        font-weight: bold;
+        margin-top: 7px;
+      }
+      .badge {
+        font-size: 11px;
+        background: #dcfce7;
+        color: #15803d;
+        padding: 4px 8px;
+        border-radius: 20px;
+      }
+      .progress {
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 10px;
+        margin: 10px 0;
+      }
+      .progress span {
+        display: block;
+        height: 100%;
+        background: var(--primary);
+        border-radius: 10px;
+      }
+      .order {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+      }
+      .order:last-child {
+        border: 0;
+      }
+      .order-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+      .order small {
+        color: var(--gray);
+      }
+      @media (max-width: 900px) {
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .content {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 650px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          display: none;
+        }
+        .search {
+          width: 150px;
+        }
+        .main {
+          padding: 15px;
+        }
+        .products {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .header h1 {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">ShopFlow</div>
+      <input class="search" placeholder="Search products..." />
+      <div class="profile">
+        <span>Admin</span>
+        <div class="avatar">N</div>
+      </div>
+    </nav>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>MENU</h3>
+        <a class="active" href="#">Dashboard</a>
+        <a href="#">Orders</a>
+        <a href="#">Products</a>
+        <a href="#">Customers</a>
+        <a href="#">Analytics</a>
+        <a href="#">Settings</a>
+      </aside>
+
+      <main class="main">
+        <div class="header">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Welcome back, NAVNEET👋</p>
+          </div>
+          <button class="button">+ Add Product</button>
+        </div>
+
+        <section class="stats">
+          <div class="card">
+            <div class="stat-title">Total Sales</div>
+            <div class="stat-value">₹2,84,500</div>
+            <small class="green">↑ 12.5%</small>
+          </div>
+          <div class="card">
+            <div class="stat-title">Orders</div>
+            <div class="stat-value">1,248</div>
+            <small class="green">↑ 8.2%</small>
+          </div>
+          <div class="card">
+            <div class="stat-title">Customers</div>
+            <div class="stat-value">8,420</div>
+            <small class="green">↑ 5.4%</small>
+          </div>
+          <div class="card">
+            <div class="stat-title">Refunds</div>
+            <div class="stat-value">₹12,400</div>
+            <small class="red">↑ 2.1%</small>
+          </div>
+        </section>
+
+        <div class="content">
+          <section class="card">
+            <div class="section-title">
+              <h2>Top Products</h2>
+              <span>View all →</span>
+            </div>
+            <div class="products">
+              <div class="product">
+                <div class="product-img">🎧</div>
+                <div class="product-info">
+                  <h3>Wireless Headphones</h3>
+                  <p>324 sold</p>
+                  <div class="price">
+                    ₹2,499 <span class="badge">Popular</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product">
+                <div class="product-img">⌚</div>
+                <div class="product-info">
+                  <h3>Smart Watch</h3>
+                  <p>280 sold</p>
+                  <div class="price">₹3,999</div>
+                </div>
+              </div>
+
+              <div class="product">
+                <div class="product-img">📱</div>
+                <div class="product-info">
+                  <h3>Phone Case</h3>
+                  <p>245 sold</p>
+                  <div class="price">₹599</div>
+                </div>
+              </div>
+
+              <div class="product">
+                <div class="product-img">🎮</div>
+                <div class="product-info">
+                  <h3>Gaming Controller</h3>
+                  <p>190 sold</p>
+                  <div class="price">₹3,299</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-title"><h2>Recent Orders</h2></div>
+            <div class="order">
+              <div class="order-row">
+                <b>#ORD-1042</b><span class="badge">Paid</span>
+              </div>
+              <small>Rahul • ₹4,299</small>
+            </div>
+            <div class="order">
+              <div class="order-row">
+                <b>#ORD-1041</b><span class="badge">Paid</span>
+              </div>
+              <small>Anita • ₹2,499</small>
+            </div>
+            <div class="order">
+              <div class="order-row">
+                <b>#ORD-1040</b><span class="badge">Paid</span>
+              </div>
+              <small>Arjun • ₹6,799</small>
+            </div>
+            <div class="order">
+              <div class="order-row">
+                <b>#ORD-1039</b><span class="badge">Paid</span>
+              </div>
+              <small>Priya • ₹1,299</small>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

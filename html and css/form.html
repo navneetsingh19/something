@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Employee Onboarding</title>
+
+<!-- <style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+  padding:40px;
+}
+
+.form-box{
+  max-width:800px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 4px 20px #00000010;
+}
+
+h1{font-size:24px;margin-bottom:6px}
+.subtitle{color:#64748b;margin-bottom:25px}
+
+.section{
+  font-size:14px;
+  font-weight:bold;
+  color:#2563eb;
+  margin:25px 0 15px;
+  padding-bottom:8px;
+  border-bottom:1px solid #e2e8f0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+label{
+  font-size:13px;
+  font-weight:bold;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid #cbd5e1;
+  border-radius:7px;
+  font-size:14px;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#2563eb;
+}
+
+textarea{
+  height:90px;
+  resize:vertical;
+}
+
+.full{grid-column:1/-1}
+
+.actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:25px;
+}
+
+button{
+  padding:11px 18px;
+  border-radius:7px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.cancel{
+  background:white;
+  border:1px solid #cbd5e1;
+}
+
+.submit{
+  background:#2563eb;
+  color:white;
+  border:0;
+}
+
+@media(max-width:600px){
+  body{padding:15px}
+  .grid{grid-template-columns:1fr}
+}
+</style> -->
+</head>
+
+<body>
+
+<div class="form-box">
+
+  <h1>Employee Onboarding</h1>
+  <p class="subtitle">Add a new employee to your organization</p>
+
+  <form>
+
+    <div class="section">Personal Information</div>
+
+    <div class="grid">
+
+      <div class="field">
+        <label>First Name          
+        </label>
+        <input type="text" placeholder="Enter first name" required>
+      </div>
+
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter last name">
+      </div>
+
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" placeholder="name@company.com">
+      </div>
+
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 98765 43210">
+      </div>
+
+    </div>
+
+    <div class="section">Job Information</div>
+
+    <div class="grid">
+
+      <div class="field">
+        <label>Department</label>
+        <select>
+          <option>Select department</option>
+          <option>Engineering</option>
+          <option>Data</option>
+          <option>Marketing</option>
+          <option>Finance</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Job Role</label>
+        <input type="text" placeholder="e.g. Python Developer">
+      </div>
+
+      <div class="field">
+        <label>Joining Date</label>
+        <input type="date">
+      </div>
+
+      <div class="field">
+        <label>Employment Type</label>
+        <select>
+          <option>Select type</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Intern</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Additional Notes</label>
+        <textarea placeholder="Add any relevant information..."></textarea>
+      </div>
+
+    </div>
+
+    <div class="actions">
+      <button type="button" class="cancel">Cancel</button>
+      <button type="submit" class="submit">Create Employee</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

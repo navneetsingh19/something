@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlayLand - Kids Forest Adventure</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:"Trebuchet MS",Arial,sans-serif;
+  background:#fff8e7;
+  color:#333;
+}
+
+nav{
+  background:#ff6b6b;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 4px 12px #0002;
+}
+
+.logo{
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+}
+
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+nav a:hover{color:#ffe66d}
+
+/* HERO */
+
+.hero{
+  min-height:500px;
+  padding:60px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  background:linear-gradient(135deg,#ffe66d,#ff9f43);
+}
+
+.hero-text{max-width:520px}
+
+.hero h1{
+  font-size:55px;
+  line-height:1.1;
+  color:#5f27cd;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  color:#5b3c11;
+  margin-bottom:25px;
+}
+
+.play-btn{
+  display:inline-block;
+  background:#5f27cd;
+  color:white;
+  padding:14px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 6px 0 #341f97;
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+  width:400px;
+  height:300px;
+  object-fit:cover;
+  border:10px solid white;
+  border-radius:40px;
+  box-shadow:0 15px 30px #0003;
+}
+
+/* ACTIVITIES */
+
+.activities{
+  padding:65px 7%;
+  text-align:center;
+}
+
+.activities h2,
+.forest h2{
+  font-size:35px;
+  color:#5f27cd;
+  margin-bottom:35px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  padding:25px 15px;
+  border-radius:20px;
+  color:white;
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:.3s;
+  box-shadow:0 8px 15px #0002;
+}
+
+.card:hover{
+  transform:translateY(-8px) rotate(-2deg);
+}
+
+.card:nth-child(1){background:#ff6b6b}
+.card:nth-child(2){background:#1dd1a1}
+.card:nth-child(3){background:#54a0ff}
+.card:nth-child(4){background:#ff9f43}
+
+.emoji{font-size:50px;margin-bottom:10px}
+
+/* FOREST */
+
+.forest{
+  padding:70px 7%;
+  background:
+    linear-gradient(#14532dcc,#14532dcc),
+    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+}
+
+.forest-title{
+  text-align:center;
+  color:white;
+  margin-bottom:35px;
+}
+
+.forest-title h2{
+  color:#ffe66d;
+  margin-bottom:10px;
+}
+
+.forest-title p{font-size:18px}
+
+.animals{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.animal{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 20px #0004;
+  transition:.3s;
+}
+
+.animal:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+.animal img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.animal-info{
+  padding:15px;
+  text-align:center;
+}
+
+.animal-info h3{
+  color:#166534;
+  margin-bottom:5px;
+}
+
+.animal-info p{
+  color:#64748b;
+  font-size:14px;
+}
+
+/* BANNER */
+
+.banner{
+  margin:50px 7%;
+  padding:35px;
+  text-align:center;
+  border-radius:25px;
+  background:#5f27cd;
+  color:white;
+}
+
+.banner h2{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.banner a{
+  display:inline-block;
+  margin-top:15px;
+  background:#ffe66d;
+  color:#5f27cd;
+  padding:11px 22px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+  padding:25px;
+  text-align:center;
+  background:#341f97;
+  color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  nav ul{display:none}
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero h1{font-size:42px}
+
+  .hero-image{
+    width:90%;
+    height:250px;
+  }
+
+  .cards,
+  .animals{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:500px){
+
+  .cards,
+  .animals{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="logo">🧸 PlayLand</div>
+
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Games</a></li>
+    <li><a href="#">Forest 🌲</a></li>
+    <li><a href="#">Activities</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-text">
+    <h1>Let's Play & Explore! 🌈</h1>
+
+    <p>
+      Welcome to PlayLand — a magical world
+      where kids can play, learn and discover
+      amazing adventures!
+    </p>
+
+    <a href="#" class="play-btn">Start Adventure 🚀</a>
+  </div>
+
+  <img
+    class="hero-image"
+    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+    alt="Beautiful forest adventure">
+</section>
+
+<!-- ACTIVITIES -->
+
+<section class="activities">
+
+  <h2>🎨 Choose Your Adventure</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="emoji">🎮</div>
+      <h3>Fun Games</h3>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h3>Creative Art</h3>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🧩</div>
+      <h3>Puzzles</h3>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🚀</div>
+      <h3>Adventure</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOREST EXPERIENCE -->
+
+<section class="forest">
+
+  <div class="forest-title">
+    <h2>🌲 Explore the Magic Forest 🦁</h2>
+    <p>Meet your animal friends and discover the wild!</p>
+  </div>
+
+  <div class="animals">
+
+    <div class="animal">
+      <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=600&q=80"
+           alt="Lion">
+      <div class="animal-info">
+        <h3>🦁 Leo</h3>
+        <p>The brave forest explorer!</p>
+      </div>
+    </div>
+
+    <div class="animal">
+      <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=600&q=80"
+           alt="Panda">
+      <div class="animal-info">
+        <h3>🐼 Poppy</h3>
+        <p>The friendly bamboo lover!</p>
+      </div>
+    </div>
+
+    <div class="animal">
+      <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80"
+           alt="Elephant">
+      <div class="animal-info">
+        <h3>🐘 Ellie</h3>
+        <p>The gentle forest giant!</p>
+      </div>
+    </div>
+
+    <div class="animal">
+      <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=600&q=80"
+         alt="Colorful bird">
+      <div class="animal-info">
+        <h3>🦜 Rio</h3>
+        <p>The colorful singing bird!</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FINAL BANNER -->
+
+<section class="banner">
+  <h2>🌈 Ready for the Forest Adventure?</h2>
+  <p>Grab your backpack and let's explore!</p>
+  <a href="#">Enter the Forest 🌲</a>
+</section>
+
+<footer>
+  Made with ❤️ for little explorers 🧸
+</footer>
+
+</body>
+</html>
