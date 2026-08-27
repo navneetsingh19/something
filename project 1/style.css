@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+}
+
+body {
+  /* Background is scoped to the page instead of every element. */
+  background-color: #5da8c6;
+}
+
+/* Main navigation bar layout. */
+.navbar {
+  /* Top navigation bar container. */
+  background-color: #453a58;
+  color: #fff;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  overflow: hidden; /* Keeps navbar content from leaking outside its bounds. */
+  justify-content: space-evenly; /* Ensures the logo and search bar are on opposite ends. */
+}
+.nav-logo {
+  /* Fixed at 50px so its height stays within the 60px navbar. */
+  width: 100px;
+  height: 50px;
+  background-image: url("amazon_logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hover outline for navigation sections. */
+.border {
+  border: 2px solid transparent;
+}
+
+.border:hover {
+  border: 2px solid white;
+}
+.add-first {
+  color: #cccccc;
+  font-size: 0.7rem;
+  margin-left: 15px;
+}
+.add-second {
+  font-size: 0.9rem;
+  margin-left: 33px;
+}
+.add-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/* Responsive search controls stay contained within the navbar. */
+.nav-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 620px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-select,
+.search-input,
+.search-icon {
+  height: 100%;
+  border: 0;
+}
+
+.search-select {
+  width: 55px;
+  padding: 0 8px;
+  background-color: #f3f3f3;
+}
+
+.search-input {
+  min-width: 0;
+  flex: 1;
+  padding: 0 10px;
+  border: none;
+}
+
+.search-icon {
+  width: 45px;
+  background-color: #febd69;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* <or do it instead for whole > cursor: pointer;  */
+}
+
+/* box 4 */
+
+.span {
+  font-size: 0.8rem;
+}
+.nav-second {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.nav-search:hover {
+  border: 2px solid red;
+}
+
+.nav-cart i {
+  font-size: 30px;
+}
+.nav-cart {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+/* Changed: renamed .panal to .panel and aligned items to prevent overflow. */
+.panel {
+  min-height: 40px;
+  padding: 0 20px;
+  background-color: #222f3d;
+  color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.panel-all {
+  /* Changed: styles the new All button and keeps its icon/text aligned. */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.panel-options {
+  /* Changed: flex spacing replaces the invalid `margin-left: 10 px` values. */
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 18px;
+  min-width: 0;
+}
+
+.panel a {
+  color: inherit;
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.panel a:hover,
+.panel-all:hover {
+  text-decoration: underline;
+}
+
+.panel-deals {
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  /* Changed: lets panel links scroll on small screens instead of leaking out. */
+  .panel {
+    gap: 12px;
+    overflow-x: auto;
+  }
+
+  .panel-options {
+    flex: none;
+  }
+
+  .panel-deals {
+    display: none;
+  }
+}
+
+/* Changed: full-width hero now uses the available s2 image and crops it neatly. */
+.hero-section {
+  width: 100%;
+  min-height: 400px;
+  padding: 24px;
+  background: url("s3.img.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Changed: a padded, readable card replaces the fixed-height message bar. */
+.hero-msg {
+  width: min(900px, 100%);
+  padding: 14px 20px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.94);
+  color: #111;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.hero-msg a {
+  color: #007185;
+  font-weight: 700;
+  text-decoration: none; 
+}
+
+.hero-msg a:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}
+
+/* shop section */
+.shop-section{
+  display:flex ;
+  /* width: 40%; */
+    background-color: #e2e7e6;
+   justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.box{
+   height: 400px;
+   border: none;
+   border-radius: 12px;
+    width: 23%;
+    background-color: rgb(253, 255, 255);
+    padding: 20px 0px 15px;
+    margin-top: 15px; 
+}
+
+.box-img{
+  height: 300px;
+  border-radius: 8px;
+  background-size: cover;
+  margin-bottom: 1rem;
+  margin-left: 10px;
+    margin-right:10px 
+}
+
+.box.content{
+    margin-left: 10px;
+    margin-right:10px ;
+}
+.box-content{
+color: #007185 ;
+
+}
+/* footer for me */
+.footer{
+    margin-top: 15px;
+
+
+}
+.footer-panell{
+  background-color: #37475a;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  
+}
